@@ -68,9 +68,11 @@ export default function Navbar(props) {
                           priority={true}
                         />
                       ) : (
-                        <span className="block text-center">
-                          Stablo
-                        </span>
+                        <Image
+                          src="/img/logo.png"
+                          alt="Logo"
+                          priority={true}
+                        />
                       )}
                     </a>
                   </Link>
