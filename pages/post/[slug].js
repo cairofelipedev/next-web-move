@@ -18,6 +18,7 @@ import defaultOG from "../../public/img/opengraph.jpg";
 import { singlequery, configQuery, pathquery } from "@lib/groq";
 import CategoryLabel from "@components/blog/category";
 import AuthorCard from "@components/blog/authorCard";
+import ptBR from "date-fns/locale/pt-BR";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
@@ -135,11 +136,12 @@ export default function Post(props) {
                           parseISO(
                             post?.publishedAt || post._createdAt
                           ),
-                          "MMMM dd, yyyy"
+                          "MMMM dd, yyyy",
+                          { locale: ptBR }
                         )}
                       </time>
                       <span>
-                        · {post.estReadingTime || "5"} min read
+                        · {post.estReadingTime || "5"} min de leitura
                       </span>
                     </div>
                   </div>
@@ -171,7 +173,7 @@ export default function Post(props) {
               <div className="flex justify-center mt-7 mb-7">
                 <Link href="/">
                   <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
-                    ← View all posts
+                    ← Todas postagens
                   </a>
                 </Link>
               </div>

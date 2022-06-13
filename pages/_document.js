@@ -8,7 +8,7 @@ import Document, {
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="pt-br">
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"
