@@ -79,7 +79,7 @@ export default function Post(props) {
                 />
               ))}
             </div>
-            <p class="text-center">Publicidade</p>
+            <p className="text-center">Publicidade</p>
             <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
               <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center">
             
