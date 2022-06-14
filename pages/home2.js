@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import Layout from "@components/layout";
+import Layout from "@components/layout2";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";

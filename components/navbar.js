@@ -14,18 +14,18 @@ export default function Navbar(props) {
     },
     {
       label: "Quem Somos",
-      href: "/quem-somos"
+      href: "#"
     },
     {
       label: "Contato",
-      href: "/contato"
+      href: "#"
     }
   ];
 
   const rightmenu = [
     {
       label: "Notícias",
-      href: "/blog"
+      href: "#"
     },
     {
       label: "Vídeos",
