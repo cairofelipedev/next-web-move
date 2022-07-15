@@ -64,8 +64,7 @@ export default function Navbar(props) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -77,25 +76,20 @@ export default function Navbar(props) {
         </div>
       </div>
       <div className="text-white sm:bg-blue-900">
-        <div className="container mx-auto hidden max-w-6xl py-3 sm:block">
-          <Link
-            href="#"
-            className="p-1 font-medium uppercase  sm:p-4 py-2 px-4"
-          >
-            HOME
-          </Link>
+        <div className="container mx-auto hidden max-w-6xl py-3 px-3 sm:block">
+          <Link href="/">HOME</Link>
           <div className="group inline-block">
-            <button className="inline-flex items-center rounded py-2 px-4">
+            <button className="inline-flex items-center rounded py-2 px-6">
               <span className="mr-1 text-white">QUEM SOMOS</span>
-              <svg
+              {/* <svg
                 className="h-4 w-4 fill-current text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
+              </svg> */}
             </button>
-            <ul className="absolute z-10 hidden rounded bg-white pt-1 shadow-md shadow-gray-300 group-hover:block dark:bg-gray-800">
+            {/* <ul className="absolute z-10 hidden rounded bg-white pt-1 shadow-md shadow-gray-300 group-hover:block dark:bg-gray-800">
               <li>
                 <button className="inline-flex items-center rounded py-2 px-4">
                   <svg
@@ -132,7 +126,7 @@ export default function Navbar(props) {
                   <h1 className="ml-2 mr-5 text-sm">DIRETORIA</h1>
                 </button>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="group inline-block">
             <button className="inline-flex items-center rounded py-2 px-4">

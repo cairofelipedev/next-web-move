@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import GetImage from "@utils/getImage";
-import Navbar2 from "@components/navbar2";
+import Navbar from "@components/navbar";
 // import defaultOG from "../public/img/og-default.jpg";
 
 import Footer from "@components/footer";
@@ -43,7 +43,7 @@ export default function Layout(props) {
       />
 
       <div className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
-        <Navbar2 {...props} />
+        <Navbar {...props} />
         <div>{children}</div>
 
         <Footer {...props} />
