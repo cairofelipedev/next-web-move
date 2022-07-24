@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Título",
       type: "string"
     },
     {
@@ -19,22 +19,22 @@ export default {
     },
     {
       name: "excerpt",
-      title: "Excerpt",
+      title: "Subtítulo",
       description:
-        "The excerpt is used in blog feeds, and also for search results",
+        "O subtítulo é usado em feeds de blogs e também para resultados de pesquisa",
       type: "text",
       rows: 3,
       validation: Rule => Rule.max(200)
     },
     {
       name: "author",
-      title: "Author",
+      title: "Colunista",
       type: "reference",
       to: { type: "author" }
     },
     {
       name: "mainImage",
-      title: "Main image",
+      title: "Imagem Principal",
       type: "image",
       fields: [
         // {
@@ -62,9 +62,21 @@ export default {
     },
     {
       name: "categories",
-      title: "Categories",
+      title: "Categorias",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }]
+    },
+    {
+      name: "destaque",
+      title: "Destaque",
+      type: "string",
+      description: "Post em destaque",
+      options: {
+        list: [
+          { title: "Sim", value: "s" },
+          { title: "Não", value: "n" }
+        ]
+      }
     },
     {
       name: "publishedAt",

@@ -16,7 +16,7 @@ const hiddenDocTypes = listItem =>
 
 export default () =>
   S.list()
-    .title("Content Manager")
+    .title("Gerenciador de Conteúdo")
     .items([
       S.listItem()
         .title("Site Config")
