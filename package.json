@@ -27,6 +27,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.31.2",
+    "swiper": "^8.3.1",
     "use-web3forms": "^1.2.1"
   },
   "devDependencies": {

@@ -79,6 +79,18 @@ export default {
       }
     },
     {
+      name: "destaquelist",
+      title: "Destaque - Lista",
+      type: "string",
+      description: "Destaquem que ficam na listagem principal",
+      options: {
+        list: [
+          { title: "Sim", value: "s" },
+          { title: "Não", value: "n" }
+        ]
+      }
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime"

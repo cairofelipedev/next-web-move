@@ -4,15 +4,26 @@ import Container from "@components/container";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
 import defaultOG from "../public/img/opengraph.jpg";
-import { postquery, configQuery } from "@lib/groq";
+import { postquery, configQuery, destaques } from "@lib/groq";
 import GetImage from "@utils/getImage";
 import PostList from "@components/postlist";
+import DestaqueItem from "@components/destaqueitem";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
+import "@css/style.module.css";
+import PostList2 from "@components/postlist2";
 
 export default function Post(props) {
-  const { postdata, siteconfig, preview } = props;
+  const { postdata, siteconfig, preview, postdata2 } = props;
 
   const router = useRouter();
-  //console.log(router.query.category);
+
+  const { data: posts2 } = usePreviewSubscription(destaques, {
+    initialData: postdata2,
+    enabled: preview || router.query.preview !== undefined
+  });
 
   const { data: posts } = usePreviewSubscription(postquery, {
     initialData: postdata,
@@ -56,10 +67,47 @@ export default function Post(props) {
           <Container>
             <p className="text-center">Publicidade</p>
             <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
-              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center">
-            
+              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center"></div>
+            </div>
+            <div className="flex">
+              <div className="w-2/3">
+                <Swiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper">
+                  {posts2.map(post2 => (
+                    <SwiperSlide key={post2._id}>
+                      <PostList2
+                        post2={post2}
+                        aspect="landscape"
+                        preloadImage={true}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className="w-1/3">
+                <Swiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper">
+                  {posts2.map(post2 => (
+                    <SwiperSlide key={post2._id}>
+                      <PostList2
+                        post2={post2}
+                        aspect="landscape"
+                        preloadImage={true}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
+            {/* {posts2.map(item => (
+              <div key={item.id}>
+                <DestaqueItem destaques={item} />
+              </div>
+            ))} */}
             <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
               {posts.slice(0, 2).map(post => (
                 <PostList
@@ -81,9 +129,7 @@ export default function Post(props) {
             </div>
             <p className="text-center">Publicidade</p>
             <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
-              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center">
-            
-              </div>
+              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center"></div>
             </div>
           </Container>
         </Layout>
@@ -94,6 +140,7 @@ export default function Post(props) {
 
 export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
+  const post2 = await getClient(preview).fetch(destaques);
   const config = await getClient(preview).fetch(configQuery);
 
   // const categories = (await client.fetch(catquery)) || null;
@@ -101,7 +148,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       postdata: post,
-      // categories: categories,
+      postdata2: post2,
       siteconfig: { ...config },
       preview
     },
