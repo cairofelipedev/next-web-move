@@ -11,7 +11,7 @@ import DestaqueItem from "@components/destaqueitem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Navigation, Mousewheel, Pagination } from "swiper";
 import "@css/style.module.css";
 import PostList2 from "@components/postlist2";
 
