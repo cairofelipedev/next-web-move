@@ -17,6 +17,20 @@ export default {
         maxLength: 96,
       },
     },
+    ,
+    {
+      name: "tipo",
+      title: "Tipo",
+      type: "string",
+      description: "Topo, Central ou Rodapé",
+      options: {
+        list: [
+          { title: "Topo", value: "t" },
+          { title: "Central", value: "c" },
+          { title: "Rodapé", value: "r" }
+        ]
+      }
+    },
     {
       name: 'image',
       title: 'Image',
