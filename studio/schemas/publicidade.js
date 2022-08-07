@@ -17,7 +17,6 @@ export default {
         maxLength: 96,
       },
     },
-    ,
     {
       name: "tipo",
       title: "Tipo",
