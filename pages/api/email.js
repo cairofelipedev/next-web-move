@@ -3,7 +3,7 @@ const config = require('../../utils/config')
 
 export default function sendEmail(req, res) {
   let transporter = nodemailer.createTransport ({
-    host: 'smtp.gmail.com',
+    host: 'br410.hostgator.com.br',
     port: 587, 
     auth: {
       user: config.USERMAIL,
