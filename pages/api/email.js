@@ -1,9 +1,10 @@
 const nodemailer = require('nodemailer')
-const config = require('@utils/config')
+const config = require('../../utils/config')
 
 export default function sendEmail(req, res) {
   let transporter = nodemailer.createTransport ({
-    service: 'gmail', 
+    host: 'smtp.gmail.com',
+    port: 587, 
     auth: {
       user: config.USERMAIL,
       pass: config.PASSMAIL
