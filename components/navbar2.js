@@ -133,11 +133,13 @@ export default function Navbar(props) {
                 </button>
               </div>
             </Link>
+            <Link href="/videos">
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
                 <span className="mr-1 text-white">VÍDEOS</span>
               </button>
             </div>
+            </Link>
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
                 <span className="mr-1 text-white">ASSOCIE-SE</span>
