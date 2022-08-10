@@ -1,6 +1,6 @@
 const config = {
-  USERMAIL: "${{ secrets.USERMAIL }}",
-  PASSMAIL: "${{ secrets.USERPASS }}"
+  USERMAIL: "move@cairo.dev.br",
+  PASSMAIL: "move2022PI@"
 }
 
 module.exports = config
