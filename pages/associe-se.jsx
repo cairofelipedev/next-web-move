@@ -62,7 +62,7 @@ export default function Associese() {
            <input
             id="message"
             type="text"
-            placeholder="Message"
+            placeholder="Message2"
             autoComplete="false"
             className=""
           />
