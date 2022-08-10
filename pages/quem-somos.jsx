@@ -1,75 +1,102 @@
 import Container from "@components/container";
 import Layout from "@components/layout";
-import { authorsquery, configQuery } from "@lib/groq";
-import { getClient } from "@lib/sanity";
-import GetImage from "@utils/getImage";
 import Image from "next/image";
-import Link from "next/link";
 
-export default function About({ authors, siteconfig }) {
+export default function About() {
   return (
-    <Layout {...siteconfig}>
+    <Layout>
       <Container>
-        <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-          About
-        </h1>
-        <div className="text-center">
-          <p className="text-lg">We are a small passionate team.</p>
-        </div>
-
-        <div className="grid grid-cols-3 gap-5 mt-6 mb-16 md:mt-16 md:mb-32 md:gap-16">
-          {authors.slice(0, 3).map(author => {
-            const { width, height, ...imgprops } = GetImage(
-              author?.image
-            );
-            return (
-              <div
-                key={author._id}
-                className="relative overflow-hidden rounded-md aspect-square odd:translate-y-10 odd:md:translate-y-16">
-                <Image
-                  {...imgprops}
-                  alt={author.name || " "}
-                  layout="fill"
-                  objectFit="cover"
-                  sizes="(max-width: 320px) 100vw, 320px"
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mx-auto prose text-center dark:prose-invert mt-14">
+        <div className="mx-auto prose text-justify dark:prose-invert mt-14">
+          <div className="flex justify-center">
+            <img
+              src="/img/logo.png"
+              alt="avatar"
+              width="250px"
+              height="150px"
+            />
+          </div>
           <p>
-            We provide real-time connectivity to enable software
-            providers and financial institutions to build integrated
-            products for their small business customers.
+            O Movimento Empreender Piauí (MOVE) é uma associação de
+            propósito não econômico constituído com a finalidade de
+            desenvolver estudos, coordenar e aprimorar atividades
+            empresariais, comerciais e industriais no estado do Piauí,
+            colaborando com os Poderes Públicos e Associações de
+            Classe, no crescimento e desenvolvimento do estado do
+            Piauí.
           </p>
           <p>
-            Our API infrastructure is leveraged by clients ranging
-            from lenders to corporate card providers and business
-            forecasting tools, with use cases including automatic
-            reconciliation, business dashboarding, and loan
-            decisioning.
+            Com sede em Teresina, o MOVE atua em todo o estado do
+            Piauí, tendo como objetivos:
           </p>
+          <li>
+            Promoção do desenvolvimento da atividade empresarial no
+            estado do Piauí;
+          </li>
+          <li>
+            Atuar junto aos poderes públicos na defesa dos princípios
+            e das ideias que estimulem ao empresariado cumprir seu
+            papel econômico e social;
+          </li>
+          <li>
+            Manter ou patrocinar publicações, por si ou mediante
+            convênios e parcerias, atividades de natureza cultural,
+            social, educacional, científica e filantrópica;
+          </li>
+          <li>
+            Celebrar convênios, acordos ou ajustes com órgãos ou
+            entidades da administração pública para realização de
+            ações que beneficiem a sociedade;
+          </li>
+          <li>
+            promover o networking dos associados, objetivando a
+            harmonia e colaboração mútua;
+          </li>
+          <li>
+            incentivar as práticas do compliance dentro das empresas,
+            bem como cobrar da administração pública a criação de
+            setores específicos;
+          </li>
+          <li>
+            promover a formação da cidadania empreendedora, tendo a
+            meritocracia como pilar de crescimento pessoal e
+            empresarial.
+          </li>
           <p>
-            <Link href="/contact">Get in touch</Link>
+            O MOVE tem como missão contribuir com o desenvolvimento
+            sustentável do Piauí, propondo ações que elevem o nível de
+            excelência da gestão pública e estimulem um ambiente
+            propício ao empreendedorismo.
           </p>
+          <p>O Move adota como valores:</p>
+          <li>
+            Sustentabilidade: estimular o respeito ao meio ambiente,
+            bem como a adoção de práticas sustentáveis pelas empresas;
+          </li>
+          <li>
+            Ética: atuar com transparência em todas as ações, buscar o
+            crescimento empresarial mantendo sempre o respeito à
+            sociedade;
+          </li>
+          <li>
+            Meritocracia: estabelecer a dedicação, o desempenho e o
+            mérito pessoal como critérios de ascensão e promoção
+            profissional;
+          </li>
+          <li>
+            Foco em resultados: alcançar os resultados desejados, com
+            o menor gasto de tempo e recursos;
+          </li>
+          <li>
+            Responsabilidade social: incentivar as empresas na
+            promoção de mudanças favoráveis às gerações futuras e à
+            construção de um mundo melhor e mais justo;
+          </li>
+          <li>
+            Transparência: tornar a informação acessível à todos,
+            exigindo dos agentes públicos atitude semelhante.
+          </li>
         </div>
       </Container>
     </Layout>
   );
-}
-
-export async function getStaticProps({ params, preview = false }) {
-  //console.log(params);
-  const authors = await getClient(preview).fetch(authorsquery);
-  const config = await getClient(preview).fetch(configQuery);
-  return {
-    props: {
-      authors: authors,
-      siteconfig: { ...config },
-      preview
-    },
-    revalidate: 100
-  };
 }

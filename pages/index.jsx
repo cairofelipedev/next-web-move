@@ -9,7 +9,10 @@ import {
   configQuery,
   destaques,
   destaques2,
-  authorsquery
+  authorsquery,
+  publi,
+  publi2,
+  publi3
 } from "@lib/groq";
 import GetImage from "@utils/getImage";
 import PostList from "@components/postlist";
@@ -23,6 +26,9 @@ import { Navigation, FreeMode, Scrollbar, Mousewheel } from "swiper";
 import "@css/style.module.css";
 import PostList2 from "@components/postlist2";
 import PostList3 from "@components/postlist3";
+import PubliCentral from "@components/PubliCentral";
+import PubliTop from "@components/PubliTop";
+import PubliRodape from "@components/PubliRodape";
 import YoutubeEmbed from "@components/Youtube";
 import Image from "next/image";
 
@@ -33,10 +39,28 @@ export default function Post(props) {
     preview,
     postdata2,
     postdata3,
-    authors
+    authors,
+    publidata,
+    publidata2,
+    publidata3
   } = props;
 
   const router = useRouter();
+
+  const { data: publiRodape } = usePreviewSubscription(publi3, {
+    initialData: publidata3,
+    enabled: preview || router.query.preview !== undefined
+  });
+
+  const { data: publiTop } = usePreviewSubscription(publi2, {
+    initialData: publidata2,
+    enabled: preview || router.query.preview !== undefined
+  });
+
+  const { data: publiCentral } = usePreviewSubscription(publi, {
+    initialData: publidata,
+    enabled: preview || router.query.preview !== undefined
+  });
 
   const { data: posts3 } = usePreviewSubscription(destaques2, {
     initialData: postdata3,
@@ -88,10 +112,14 @@ export default function Post(props) {
             }}
           />
           <Container>
-            <p className="text-center">Publicidade</p>
-            <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
-              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center"></div>
-            </div>
+            {publiTop.map(publi2 => (
+              <PubliTop
+                key={publi2._id}
+                publi2={publi2}
+                aspect="landscape"
+                preloadImage={true}
+              />
+            ))}
             <div className="md:flex">
               <div className="md:w-2/3">
                 <Swiper
@@ -142,10 +170,14 @@ export default function Post(props) {
                 />
               ))}
             </div>
-            <p className="text-center pt-4">Publicidade</p>
-            <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
-              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-10 text-center"></div>
-            </div>
+            {publiCentral.map(publi => (
+              <PubliCentral
+                key={publi._id}
+                publi={publi}
+                aspect="landscape"
+                preloadImage={true}
+              />
+            ))}
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {posts.slice(2).map(post => (
                 <PostList
@@ -160,13 +192,17 @@ export default function Post(props) {
                 <YoutubeEmbed embedId="cOV3bz0HQmc" />
               </div>
               <div className="md:w-1/3 pt-8 md:pt-2">
-                <h1 className="text-center text-2xl font-bold">Colunistas</h1>
+                <h1 className="text-center text-2xl font-bold">
+                  Colunistas
+                </h1>
                 {authors.slice(0, 3).map(author => {
                   const { width, height, ...imgprops } = GetImage(
                     author?.image
                   );
                   return (
-                    <div className="flex items-center gap-3 px-4 py-4" key={author._id}>
+                    <div
+                      className="flex items-center gap-3 px-4 py-4"
+                      key={author._id}>
                       <div className="relative flex-shrink-0 w-24 h-24">
                         <Image
                           {...imgprops}
@@ -177,16 +213,22 @@ export default function Post(props) {
                           className="rounded-full"
                         />
                       </div>
-                      <span className="text-xl text-gray-900">{author.name}</span>
+                      <span className="text-xl text-gray-900">
+                        {author.name}
+                      </span>
                     </div>
                   );
                 })}
               </div>
             </div>
-            <p className="text-center">Publicidade</p>
-            <div className="relative flex flex-col justify-center overflow-hidden bg-white py-6 sm:py-4">
-              <div className="mx-auto w-full rounded bg-[#BFBFBF] p-20 text-center"></div>
-            </div>
+            {publiRodape.map(publi3 => (
+              <PubliRodape
+                key={publi3._id}
+                publi3={publi3}
+                aspect="landscape"
+                preloadImage={true}
+              />
+            ))}
           </Container>
         </Layout>
       )}
@@ -198,6 +240,9 @@ export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const post2 = await getClient(preview).fetch(destaques);
   const post3 = await getClient(preview).fetch(destaques2);
+  const publiCentral = await getClient(preview).fetch(publi);
+  const publiTop = await getClient(preview).fetch(publi2);
+  const publiRodape = await getClient(preview).fetch(publi3);
   const config = await getClient(preview).fetch(configQuery);
   const authors = await getClient(preview).fetch(authorsquery);
 
@@ -209,6 +254,9 @@ export async function getStaticProps({ params, preview = false }) {
       postdata: post,
       postdata2: post2,
       postdata3: post3,
+      publidata: publiCentral,
+      publidata2: publiTop,
+      publidata3: publiRodape,
       siteconfig: { ...config },
       preview
     },

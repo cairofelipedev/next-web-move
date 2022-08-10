@@ -106,25 +106,33 @@ export default function Navbar(props) {
           </div>
         </div>
       </div>
-      <div className="text-white sm:bg-blue-900">
+      <div className="text-white sm:bg-blue-900 hidden md:block">
         <div className="container mx-auto max-w-6xl py-3 flex justify-between">
           <div>
             <Link href="/">HOME</Link>
-            <div className="group inline-block">
-              <button className="inline-flex items-center rounded py-2 px-6">
-                <span className="mr-1 text-white">QUEM SOMOS</span>
-              </button>
-            </div>
-            <div className="group inline-block">
-              <button className="inline-flex items-center rounded py-2 px-4">
-                <span className="mr-1 text-white">NOTICÍAS</span>
-              </button>
-            </div>
-            <div className="group inline-block">
-              <button className="inline-flex items-center rounded py-2 px-4">
-                <span className="mr-1 text-white">CONTATO</span>
-              </button>
-            </div>
+            <Link href="quem-somos">
+              <div className="group inline-block">
+                <button className="inline-flex items-center rounded py-2 px-6">
+                  <span className="mr-1 ml-3 text-white">
+                    QUEM SOMOS
+                  </span>
+                </button>
+              </div>
+            </Link>
+            <Link href="blog">
+              <div className="group inline-block">
+                <button className="inline-flex items-center rounded py-2 px-4">
+                  <span className="mr-1 text-white">NOTICÍAS</span>
+                </button>
+              </div>
+            </Link>
+            <Link href="mailto:movepiaui@gmail.com">
+              <div className="group inline-block">
+                <button className="inline-flex items-center rounded py-2 px-4">
+                  <span className="mr-1 text-white">CONTATO</span>
+                </button>
+              </div>
+            </Link>
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
                 <span className="mr-1 text-white">VÍDEOS</span>
