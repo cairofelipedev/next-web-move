@@ -1,41 +1,8 @@
 import React from "react";
-import { Disclosure } from "@headlessui/react";
-import Container from "@components/container";
 import Link from "next/link";
-import Image from "next/image";
-import GetImage from "@utils/getImage";
-import { myLoader } from "@utils/all";
+import MobileNav from "./MobileNav";
 
 export default function Navbar(props) {
-  const leftmenu = [
-    {
-      label: "Home",
-      href: "/"
-    },
-    {
-      label: "Quem Somos",
-      href: "#"
-    },
-    {
-      label: "Contato",
-      href: "#"
-    }
-  ];
-
-  const rightmenu = [
-    {
-      label: "Notícias",
-      href: "#"
-    },
-    {
-      label: "Vídeos",
-      href: "#",
-      external: true
-    }
-  ];
-
-  const mobilemenu = [...leftmenu, ...rightmenu];
-
   return (
     <>
       <div className="flex max-w-6xl justify-between px-2 pt-4 sm:mx-auto">
@@ -51,7 +18,8 @@ export default function Navbar(props) {
             </div>
           </div>
         </Link>
-        <div className="flex justify-between space-x-3">
+        <MobileNav />
+        <div className="flex hidden md:block justify-between space-x-3">
           <div className="flex space-x-6 text-blue-900">
             <a
               className="hover:opacity-75"
@@ -119,7 +87,7 @@ export default function Navbar(props) {
                 </button>
               </div>
             </Link>
-            <Link href="blog">
+            <Link href="/blog">
               <div className="group inline-block">
                 <button className="inline-flex items-center rounded py-2 px-4">
                   <span className="mr-1 text-white">NOTICÍAS</span>
@@ -140,13 +108,15 @@ export default function Navbar(props) {
               </button>
             </div>
             </Link>
+            <Link href="/associe-se">
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
                 <span className="mr-1 text-white">ASSOCIE-SE</span>
               </button>
             </div>
+            </Link>
           </div>
-          <div className="relative hidden max-w-lg sm:block">
+          {/* <div className="relative hidden max-w-lg sm:block">
             <input
               aria-label="Pesquise no site"
               type="text"
@@ -166,7 +136,7 @@ export default function Navbar(props) {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

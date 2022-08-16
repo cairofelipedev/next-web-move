@@ -131,7 +131,7 @@ export default function Footer(props) {
                   <a className="hover:opacity-75" href="#">
                     ACESSIBILIDADE
                   </a>
-                  <ThemeSwitch />
+                  {/* <ThemeSwitch /> */}
                 </nav>
               </div>
             </div>

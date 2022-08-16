@@ -3,4 +3,4 @@ const config = {
   PASSMAIL: "move2022PI@"
 }
 
-module.exports = config
+module.exports = config 
