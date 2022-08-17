@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Layout>
       <Container>
-        <div className="mx-auto prose text-justify dark:prose-invert mt-14">
+        <div className="mx-auto prose text-justify mt-14">
           <div className="flex justify-center">
             <img
               src="/img/logo.png"

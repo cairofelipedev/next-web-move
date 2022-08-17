@@ -47,24 +47,15 @@ export default function PostList2({ post2, aspect, preloadImage }) {
           </Link>
         </div>
         <CategoryLabel categories={post2.categories} />
-        <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-white">
+        <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-gray-800">
           <Link href={`/post/${post2.slug.current}`}>
-            <span
-              className="bg-gradient-to-r from-green-200 to-green-100 dark:from-purple-800 dark:to-purple-900
-          bg-[length:0px_10px]
-          bg-left-bottom
-          bg-no-repeat
-          transition-[background-size]
-          duration-500
-          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
-              {post2.title}
-            </span>
+            <span>{post2.title}</span>
           </Link>
         </h2>
 
         <div className="hidden">
           {post2.excerpt && (
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-500 line-clamp-3">
               <Link href={`/post/${post2.slug.current}`}>
                 {post2.excerpt}
               </Link>
@@ -72,7 +63,7 @@ export default function PostList2({ post2, aspect, preloadImage }) {
           )}
         </div>
 
-        <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-400">
+        <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-500">
           <div className="flex items-center gap-3">
             <div className="relative flex-shrink-0 w-5 h-5">
               {post2.author.image && (

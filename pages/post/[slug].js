@@ -102,7 +102,7 @@ export default function Post(props) {
                 <CategoryLabel categories={post.categories} />
               </div>
 
-              <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
+              <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-gray-800">
                 {post.title}
               </h1>
 
@@ -123,12 +123,12 @@ export default function Post(props) {
                     )}
                   </div>
                   <div>
-                    <p className="text-gray-800 dark:text-gray-400">
+                    <p className="text-gray-800 dark:text-gray-500">
                       {post.author.name}
                     </p>
                     <div className="flex items-center space-x-2 text-sm">
                       <time
-                        className="text-gray-500 dark:text-gray-400"
+                        className="text-gray-500 dark:text-gray-500"
                         dateTime={
                           post?.publishedAt || post._createdAt
                         }>
@@ -167,12 +167,12 @@ export default function Post(props) {
           {/* {post?.mainImage && <MainImage image={post.mainImage} />} */}
           <Container>
             <article className="max-w-screen-md mx-auto ">
-              <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
+              <div className="mx-auto my-3 prose prose-base dark:text-gray-800">
                 {post.body && <PortableText value={post.body} />}
               </div>
               <div className="flex justify-center mt-7 mb-7">
                 <Link href="/">
-                  <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
+                  <a className="px-5 py-2 text-sm dark:text-gray-800 rounded-full bg-brand-secondary/20 ">
                     ← Todas postagens
                   </a>
                 </Link>

@@ -47,16 +47,9 @@ export default function PostList({ post, aspect, preloadImage }) {
           </Link>
         </div>
         <CategoryLabel categories={post.categories} />
-        <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-white">
+        <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-gray-800">
           <Link href={`/post/${post.slug.current}`}>
-            <span
-              className="     bg-gradient-to-r from-green-200 to-green-100 dark:from-purple-800 dark:to-purple-900
-          bg-[length:0px_10px]
-          bg-left-bottom
-          bg-no-repeat
-          transition-[background-size]
-          duration-500
-          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
+            <span>
               {post.title}
             </span>
           </Link>
@@ -64,7 +57,7 @@ export default function PostList({ post, aspect, preloadImage }) {
 
         <div className="hidden">
           {post.excerpt && (
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-500 line-clamp-3">
               <Link href={`/post/${post.slug.current}`}>
                 {post.excerpt}
               </Link>
@@ -72,7 +65,7 @@ export default function PostList({ post, aspect, preloadImage }) {
           )}
         </div>
 
-        <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-400">
+        <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-500">
           <div className="flex items-center gap-3">
             <div className="relative flex-shrink-0 w-5 h-5">
               {post.author.image && (
@@ -91,7 +84,7 @@ export default function PostList({ post, aspect, preloadImage }) {
             </div>
             <span className="text-sm">{post.author.name}</span>
           </div>
-          <span className="text-xs text-gray-300 dark:text-gray-600">
+          <span className="text-xs text-gray-500 dark:text-gray-600">
             &bull;
           </span>
           <time
