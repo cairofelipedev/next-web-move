@@ -5,7 +5,7 @@ import MobileNav from "./MobileNav";
 export default function Navbar(props) {
   return (
     <>
-      <div className="flex max-w-6xl justify-between px-2 pt-4 sm:mx-auto">
+      <div className="flex max-w-6xl justify-between px-2 pt-4 sm:mx-auto border-b-2 border-gray-200">
         <Link href="/">
           <div className="mb-1 flex items-center">
             <div className="mr-3">
