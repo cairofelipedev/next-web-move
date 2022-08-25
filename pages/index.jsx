@@ -141,7 +141,7 @@ export default function Post(props) {
                 <Swiper
                   slidesPerView={2}
                   spaceBetween={5}
-                  height={300}
+                  height={200}
                   direction={"vertical"}
                   freeMode={true}
                   scrollbar={true}
