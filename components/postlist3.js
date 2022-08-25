@@ -15,11 +15,9 @@ export default function PostList3({ post3, aspect, preloadImage }) {
     <>
       <div className="cursor-pointer group ml-3">
         <CategoryLabel categories={post3.categories} />
-        <h2 className="text-xl font-semibold tracking-normal text-brand-primary dark:text-gray-800">
+        <h2 className="text-md font-semibold tracking-normal text-brand-primary dark:text-gray-800">
           <Link href={`/post/${post3.slug.current}`}>
-            <span>
-              {post3.title}
-            </span>
+            <span>{post3.title}</span>
           </Link>
         </h2>
 
@@ -51,19 +49,19 @@ export default function PostList3({ post3, aspect, preloadImage }) {
               )}
             </div>
             <span className="text-sm">{post3.author.name}</span>
+            <span className="text-xs text-gray-500 dark:text-gray-600">
+              &bull;
+            </span>
+            <time
+              className="text-sm"
+              dateTime={post3?.publishedAt || post3._createdAt}>
+              {format(
+                parseISO(post3?.publishedAt || post3._createdAt),
+                "dd MMMM, yyyy",
+                { locale: ptBR }
+              )}
+            </time>
           </div>
-          <span className="text-xs text-gray-500 dark:text-gray-600">
-            &bull;
-          </span>
-          <time
-            className="text-sm"
-            dateTime={post3?.publishedAt || post3._createdAt}>
-            {format(
-              parseISO(post3?.publishedAt || post3._createdAt),
-              "dd MMMM, yyyy",
-              { locale: ptBR }
-            )}
-          </time>
         </div>
       </div>
     </>
