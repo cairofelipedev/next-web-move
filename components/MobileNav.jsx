@@ -95,7 +95,7 @@ const MobileNav = () => {
             </Link>
           </div>
           <div className="flex justify-center space-x-5 px-12 py-2 text-center">
-            <Link href="/associe-se">
+            <Link href="https://www.facebook.com/movepiaui/">
               <span className="text-2xl font-bold tracking-widest text-white">
                 <span className="sr-only"> Facebook </span>
                 <svg
@@ -111,7 +111,7 @@ const MobileNav = () => {
                 </svg>
               </span>
             </Link>
-            <Link href="/associe-se">
+            <Link href="https://www.instagram.com/movepiaui/">
               <span className="text-2xl font-bold tracking-widest text-white">
                 <span className="sr-only"> Instagram </span>
                 <svg
