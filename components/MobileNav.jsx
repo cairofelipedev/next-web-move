@@ -127,9 +127,8 @@ const MobileNav = () => {
                 </svg>
               </span>
             </Link>
-            <Link href="/associe-se">
+            <Link href="https://www.youtube.com/channel/UCHm0zNqKSMyXzDYoZmXNejw">
               <span className="text-2xl font-bold tracking-widest text-white">
-                <span className="sr-only"> Twitter </span>
                 <svg
                   className="h-10 w-10"
                   fill="currentColor"

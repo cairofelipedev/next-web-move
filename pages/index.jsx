@@ -23,7 +23,6 @@ import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import { Navigation, FreeMode, Scrollbar, Mousewheel } from "swiper";
-import "@css/style.module.css";
 import PostList2 from "@components/postlist2";
 import PostList3 from "@components/postlist3";
 import PubliCentral from "@components/PubliCentral";
@@ -140,8 +139,8 @@ export default function Post(props) {
               <div className="md:w-1/3">
                 <Swiper
                   slidesPerView={2}
-                  spaceBetween={5}
-                  height={200}
+                  spaceBetween={25}
+                  height={100}
                   direction={"vertical"}
                   freeMode={true}
                   scrollbar={true}

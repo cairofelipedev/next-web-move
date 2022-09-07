@@ -1,0 +1,16 @@
+.bodyPost3 {
+  padding-left: 15px;
+  background-color: rgb(30 58 138);
+  border-radius:5px;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+.bodyPost3 a {
+  color:white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
