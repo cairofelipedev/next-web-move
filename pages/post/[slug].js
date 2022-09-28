@@ -98,9 +98,9 @@ export default function Post(props) {
 
           <Container className="!pt-0">
             <div className="max-w-screen-md mx-auto ">
-              <div className="text-center">
-                <CategoryLabel categories={post.categories} />
-              </div>
+//               <div className="text-center">
+//                 <CategoryLabel categories={post.categories} />
+//               </div>
 
               <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-gray-800">
                 {post.title}
