@@ -142,12 +142,12 @@ export default function Post(props) {
                   spaceBetween={25}
                   height={100}
                   direction={"vertical"}
-                  freeMode={true}
+                  freeMode={true} 
                   scrollbar={true}
                   mousewheel={true}
                   modules={[FreeMode, Scrollbar, Mousewheel]}
                   className="mySwiper">
-                  {posts3.map(post3 => (
+                  {posts3.slice(0, 6).map(post3 => (
                     <SwiperSlide key={post3._id}>
                       <PostList3
                         post3={post3}
